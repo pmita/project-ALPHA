@@ -1,0 +1,13 @@
+// CSS ASSETS
+@import './base/variables';
+@import './abstract/global';
+@import './functions/mixins';
+
+.App{
+    background: $white;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 5rem;
+    display: grid;
+    place-items: center;
+}
