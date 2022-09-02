@@ -1,7 +1,10 @@
+// COMPONENTS
+import Navigation from './layout/Navigation';
+
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to base react</h1>
+      <Navigation />
     </div>
   );
 }
