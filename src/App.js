@@ -1,7 +1,19 @@
+// COMPONENTS
+import { Routes, Route } from 'react-router-dom';
+import Navigation from './layout/Navigation';
+// PAGES
+// ROUTER
+import OurWork from './pages/OurWork/component';
+import Contact from './pages/Contact/component';
+
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to base react</h1>
+      <Navigation />
+      <Routes>
+        <Route path="/our-work" element={<OurWork />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 }
