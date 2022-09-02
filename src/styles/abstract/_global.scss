@@ -94,6 +94,14 @@
     list-style-type: none;
   }
 
+  .primary-text{
+    font-family: 'Poppins-Medium', sans-serif;
+  }
+
+  .secondary-text{
+    font-family: 'Roboto-Light', sans-serif;
+  }
+
   //Inputs
   label {
     display: block;
@@ -131,17 +139,34 @@
   .btn{
     padding: 1rem 2.5rem;
     font-size: $h4;
+    transition: $transition;
     &.primary{
-      transition: $transition;
       background: $black;
-      color: $white;
       border: 3px solid $black;
+      a{
+        color: $white;
+      }
       &:hover{
         background: $white;
         color: $black;
         cursor: pointer;
         a{
           color: $black;
+        }
+      }
+    }
+    &.secondary{
+      background: $white;
+      border: 3px solid $black;
+      a{
+        color: $black;
+      }
+      &:hover{
+        background: $black;
+        color: $white;
+        cursor: pointer;
+        a{
+          color: $white;
         }
       }
     }
