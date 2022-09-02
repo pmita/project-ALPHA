@@ -32,6 +32,9 @@ nav{
 }
 
 .nav-burger{
+  background-color: transparent;
+  border: none;
+  outline: none;
   height: 30px;
   width: 30px;
   font-weight: 400;
@@ -53,7 +56,7 @@ nav{
     transform: translateX(100%);
     transition: all 0.3s ease-in;
     z-index: 2;
-    @include flex(column, spav, center);
+    @include flex(column, space-evenly, center);
     &.active{
       transform: translateX(0%);
     }
