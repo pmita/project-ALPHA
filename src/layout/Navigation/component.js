@@ -12,10 +12,14 @@ function Navigation() {
 
   return (
     <nav>
-      <h4 id="nav-logo">HandymanInNewcastle</h4>
+      <h4 id="nav-logo">
+        <Link to="/">
+          Handyman in Newcastle
+        </Link>
+      </h4>
       <ul className={isHidden ? 'nav-items active' : 'nav-items'}>
-        <li><Link to="/">Work</Link></li>
-        <li><Link to="/">Get in Touch</Link></li>
+        <li><Link to="/our-work">Work</Link></li>
+        <li><Link to="/contact">Get in Touch</Link></li>
       </ul>
       <button className="nav-burger" type="button" onClick={() => setIsHidden(!isHidden)}>
         <img src={burgerIcon} alt="toggle menu icon" />

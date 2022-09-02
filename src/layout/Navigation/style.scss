@@ -13,7 +13,10 @@ nav{
 
 #nav-logo{
   flex: 1;
-  font-family: 'Poppins-Bold', sans-serif;
+  a{
+    color: $black;
+    font-family: 'Poppins-Bold', sans-serif;
+  }
 }
 
 .nav-items{
