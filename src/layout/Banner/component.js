@@ -1,34 +1,36 @@
-import { Link } from 'react-router-dom';
-// ASSETS
-import bannerImg from '../../assets/images/paint-banner.jpg';
+// COMPONENTS
+import PropTypes from 'prop-types';
 // STYLES
 import './style.scss';
+// ASSETS
+import defaultBannerImg from '../../assets/images/paint-banner.jpg';
 
-function Banner() {
+function Banner({ children, bannerImg, altText }) {
   return (
     <section className="banner-section">
       <div className="banner-left">
-        <h1 className="primary-text">
-          We paint, we build, and we fix all your problems
-        </h1>
-        <h3 className="secondary-text">
-          Affordable solutions for everyday households, to common problems, and with a
-          unique customer experience
-        </h3>
-        <div className="action-buttons">
-          <button className="btn primary" type="button">
-            <Link to="/contact">Get in Touch</Link>
-          </button>
-          <button className="btn secondary" type="button">
-            <Link to="/our-work">Check our Work</Link>
-          </button>
-        </div>
+        {children}
       </div>
       <div className="banner-right">
-        <img src={bannerImg} alt="some text goes here" />
+        <img
+          src={bannerImg}
+          alt={altText}
+          onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1516962080544-eac695c93791?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'; }}
+        />
       </div>
     </section>
   );
 }
+
+Banner.defaultProps = {
+  bannerImg: defaultBannerImg,
+  altText: 'placeholder'
+};
+
+Banner.propTypes = {
+  children: PropTypes.node.isRequired,
+  bannerImg: PropTypes.string,
+  altText: PropTypes.string
+};
 
 export default Banner;
