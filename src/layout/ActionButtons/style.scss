@@ -9,3 +9,14 @@
     width: 250px;
   }
 }
+
+/* Media Queries */
+@media only screen and (max-width: 450px){
+  .action-buttons{
+    @include flex(column, center, center);
+    gap: 1rem;
+    .btn{
+      width: 100%;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 @import '../base/variables';
 
-// --------- FONTS -----------------
+/* Font Properties */
 // main font
 @font-face{
   font-family: 'Poppins-Bold';
@@ -94,15 +94,21 @@
     list-style-type: none;
   }
 
+  /* Text Properties*/
   .primary-text{
     font-family: 'Poppins-Medium', sans-serif;
-  }
+    font-size: 6rem;
+    max-width: 500px;
+    word-wrap: break-word;
+}
 
-  .secondary-text{
+.secondary-text{
     font-family: 'Roboto-Light', sans-serif;
-  }
+    max-width: 550px;
+    word-wrap: break-word;
+}
 
-  //Inputs
+  /* Input PRoperties */
   label {
     display: block;
   }
@@ -135,7 +141,7 @@
     }
   }
 
-  //Buttons
+  /* Button Properties*/
   .btn{
     padding: 1rem 2.5rem;
     font-size: $h4;
@@ -178,4 +184,19 @@
     html {
       font-size: 52.25%;
     }
+  }
+
+  @media only screen and (max-width: 450px) {
+    html {
+      font-size: 42.5%;
+    }
+        /* Text Properties*/
+        .primary-text{
+          font-size: 4rem;
+          max-width: 350px;
+      }
+      
+        .secondary-text{
+            max-width: 300px;
+        }
   }
