@@ -176,6 +176,21 @@
         }
       }
     }
+    &.highlight{
+      background: $brown;
+      border: 3px solid $brown;
+      a{
+        color: $black;
+      }
+      &:hover{
+        background: $black;
+        color: $brown;
+        cursor: pointer;
+        a{
+          color: $brown;
+        }
+      }
+    }
   }
 
   

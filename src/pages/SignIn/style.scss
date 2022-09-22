@@ -1,0 +1,31 @@
+@import '../../styles/functions/mixins';
+@import '../../styles/base/variables';
+@import '../../styles/abstract/global';
+
+.signin-page{
+  overflow-y: hidden;
+  min-height: 90vh;
+  width: 100%;
+  background: $black;
+  @include flex(column, center, center);
+  h2{
+  margin-bottom: 2.5rem;
+   color: $white;
+   font-family: 'Roboto', sans-serif; 
+  }
+}
+
+.signin-form{
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  @include flex(column, center, stretch);
+  label{
+    input{
+      width: 100%;
+      margin-bottom: 2.5rem;
+      background: $black-light;
+      color: $black-highlight;
+    }
+  }
+}
