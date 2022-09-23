@@ -22,6 +22,10 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectAuthUser);
   const authIsReady = useSelector(selectAuthIsReady);
+  const apiKey = `${process.env.REACT_APP_FIREBASE_API_KEY}`;
+
+  // eslint-disable-next-line no-console
+  console.log(apiKey);
 
   // useEFFECT
   useEffect(() => {
