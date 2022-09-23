@@ -1,24 +1,12 @@
-import { useEffect } from 'react';
-// ROUTER
-import { useNavigate } from 'react-router-dom';
 // REDUX
-import { useDispatch, useSelector } from 'react-redux';
-import { signOut, selectAuthUser } from '../../app/slices/authSlice';
+import { useDispatch } from 'react-redux';
+import { signOut } from '../../app/slices/authSlice';
 // STYLE
 import './style.scss';
 
 function Dashboard() {
   // STATE & VARIABLES
-  const user = useSelector(selectAuthUser);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  // USE EFFECT
-  useEffect(() => {
-    if (!user) {
-      navigate('/admin/signin');
-    }
-  }, [user]);
 
   return (
     <div className="dashboard-page">
