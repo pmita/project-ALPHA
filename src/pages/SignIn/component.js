@@ -6,23 +6,21 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   signIn,
-  signInError,
-  signInIsPending,
-  signInUser
+  selectAuthError,
+  selectAuthIsPending,
+  selectAuthUser
 } from '../../app/slices/authSlice';
 // STYLES
 import './style.scss';
 
 function SignIn() {
-  // STATE
+  // STATE & VARIABLES
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // REDUX
-  const error = useSelector(signInError);
-  const isPending = useSelector(signInIsPending);
-  const user = useSelector(signInUser);
+  const error = useSelector(selectAuthError);
+  const isPending = useSelector(selectAuthIsPending);
+  const user = useSelector(selectAuthUser);
   const dispatch = useDispatch();
-  // ROUTER
   const navigate = useNavigate();
 
   // EVENTS

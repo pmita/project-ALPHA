@@ -61,9 +61,9 @@ export const authSlice = createSlice({
 });
 
 // REDUX SELECTORS
-export const signInError = (state) => state.auth.error;
-export const signInIsPending = (state) => state.auth.isPending;
-export const signInUser = (state) => state.auth.user;
+export const selectAuthError = (state) => state.auth.error;
+export const selectAuthIsPending = (state) => state.auth.isPending;
+export const selectAuthUser = (state) => state.auth.user;
 
 // MAIN REDUCER EXPORT
 export default authSlice.reducer;
