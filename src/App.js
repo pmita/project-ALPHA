@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 // REDUX
 import { useDispatch, useSelector } from 'react-redux';
-import { authenticated, selectAuthUser } from './app/slices/authSlice';
+import { authenticated, selectAuthIsReady, selectAuthUser } from './app/slices/authSlice';
 // FIREBASE
 import { fireAuth } from './firebase/config';
 // COMPONENTS
@@ -21,6 +21,7 @@ function App() {
   // STATE & VARIABLES
   const dispatch = useDispatch();
   const user = useSelector(selectAuthUser);
+  const authIsReady = useSelector(selectAuthIsReady);
 
   // useEFFECT
   useEffect(() => {
@@ -38,12 +39,16 @@ function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/our-work" element={<OurWork />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin/signin" elemement={<PrivateRouteToHome user={user} />}>
-          <Route path="/admin/signin" element={<SignIn />} />
-        </Route>
-        <Route path="/admin/dashboard" element={<PrivateRouteToDashboard user={user} />}>
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-        </Route>
+        {authIsReady && (
+          <>
+            <Route path="/admin/signin" elemement={<PrivateRouteToHome user={user} />}>
+              <Route path="/admin/signin" element={<SignIn />} />
+            </Route>
+            <Route path="/admin/dashboard" element={<PrivateRouteToDashboard user={user} />}>
+              <Route path="/admin/dashboard" element={<Dashboard />} />
+            </Route>
+          </>
+        )}
       </Routes>
     </div>
   );
