@@ -26,41 +26,32 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    authenticated: (state, action) => {
-      state.user = action.payload;
-      state.authIsReady = true;
-    }
+    authenticated: (state, action) => ({
+      ...state, user: action.payload, authIsReady: true
+    })
   },
   extraReducers(builder) {
     builder
     // Sign In actions
-      .addCase(signIn.pending, (state) => {
-        state.isPending = true;
-        state.error = null;
-      })
-      .addCase(signIn.fulfilled, (state, action) => {
-        state.isPending = false;
-        state.error = null;
-        state.user = action.payload;
-      })
-      .addCase(signIn.rejected, (state, action) => {
-        state.isPending = false;
-        state.error = action.error.message;
-      })
+      .addCase(signIn.pending, (state) => ({
+        ...state, isPending: true, error: null
+      }))
+      .addCase(signIn.fulfilled, (state, action) => ({
+        ...state, isPending: false, error: null, user: action.payload
+      }))
+      .addCase(signIn.rejected, (state, action) => ({
+        ...state, isPending: false, error: action.error.message
+      }))
       // Sign Out actions
-      .addCase(signOut.pending, (state) => {
-        state.isPending = true;
-        state.error = null;
-      })
-      .addCase(signOut.fulfilled, (state) => {
-        state.isPending = false;
-        state.error = null;
-        state.user = null;
-      })
-      .addCase(signOut.rejected, (state, action) => {
-        state.isPending = false;
-        state.error = action.error.message;
-      });
+      .addCase(signOut.pending, (state) => ({
+        ...state, isPending: true, error: null
+      }))
+      .addCase(signOut.fulfilled, (state) => ({
+        ...state, isPending: false, error: null, user: null
+      }))
+      .addCase(signOut.rejected, (state, action) => ({
+        ...state, isPending: false, error: action.error.message
+      }));
   }
 });
 
