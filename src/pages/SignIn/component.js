@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+// ROUTER
+import { useNavigate } from 'react-router-dom';
 // REDUX
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -15,10 +17,13 @@ function SignIn() {
   // STATE
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  // REDUX
   const error = useSelector(signInError);
   const isPending = useSelector(signInIsPending);
   const user = useSelector(signInUser);
   const dispatch = useDispatch();
+  // ROUTER
+  const navigate = useNavigate();
 
   // EVENTS
   const handleSubmit = (e) => {
@@ -26,6 +31,13 @@ function SignIn() {
     dispatch(signIn({ email, password }));
     console.log(email, password, error, isPending, user);
   };
+
+  // USE EFFECT
+  useEffect(() => {
+    if (user) {
+      navigate('/admin/dashboard');
+    }
+  }, [user]);
 
   return (
     <div className="signin-page">
@@ -49,7 +61,10 @@ function SignIn() {
             required
           />
         </label>
-        <button className="btn highlight" type="submit">Login</button>
+        {isPending
+          ? <button className="btn highlight" type="button" disabled>Loading...</button>
+          : <button className="btn highlight" type="submit">Login</button>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );
