@@ -22,14 +22,6 @@ export const signOut = createAsyncThunk('auth/signOut', async () => {
   return response;
 });
 
-export const userSignedIn = createAsyncThunk('auth/userSignedIn', async () => {
-  let response = null;
-  fireAuth.onAuthStateChanged((user) => {
-    response = user;
-  });
-  return response;
-});
-
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -68,31 +60,18 @@ export const authSlice = createSlice({
       .addCase(signOut.rejected, (state, action) => {
         state.isPending = false;
         state.error = action.error.message;
-      })
-      // Signed In actions
-      .addCase(userSignedIn.pending, (state) => {
-        state.isPending = true;
-        state.error = null;
-      })
-      .addCase(userSignedIn.fulfilled, (state, action) => {
-        state.isPending = false;
-        state.error = null;
-        state.user = action.payload;
-      })
-      .addCase(userSignedIn.rejected, (state, action) => {
-        state.isPending = false;
-        state.error = action.error.message;
       });
   }
 });
-
-export const { authenticated } = authSlice.actions;
 
 // REDUX SELECTORS
 export const selectAuthError = (state) => state.auth.error;
 export const selectAuthIsPending = (state) => state.auth.isPending;
 export const selectAuthUser = (state) => state.auth.user;
 export const selectAuthIsReady = (state) => state.auth.authIsReady;
+
+// ACTIONS
+export const { authenticated } = authSlice.actions;
 
 // MAIN REDUCER EXPORT
 export default authSlice.reducer;

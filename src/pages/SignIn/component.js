@@ -27,7 +27,6 @@ function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(signIn({ email, password }));
-    console.log(email, password, error, isPending, user);
   };
 
   // USE EFFECT
