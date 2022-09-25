@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import { useState } from 'react';
 // PROP TYPES
 import PropTypes from 'prop-types';
 // STYLES
@@ -12,6 +15,14 @@ function ServiceCard({
   description,
   learnMore
 }) {
+  // STATE & VARIABLES
+  const [showMore, setShowMore] = useState(false);
+
+  // EVENTS
+  const handleClick = () => {
+    setShowMore(!showMore);
+  };
+
   return (
     <div className="wrapper">
       <div className="service-item">
@@ -20,13 +31,13 @@ function ServiceCard({
         <p>
           {description}
         </p>
-        <button type="button" className="learn-more">LEARN MORE</button>
+        <button type="button" className="learn-more" onClick={handleClick}>LEARN MORE</button>
       </div>
-      <div className="service-item-details">
+      <div className={showMore ? 'service-item-details active' : 'service-item-details'}>
         <p>
           {learnMore}
         </p>
-        <img src={cancelSymbol} alt="Cancel button svg" />
+        <img src={cancelSymbol} alt="Cancel button svg" onClick={handleClick} />
       </div>
     </div>
   );
