@@ -1,9 +1,37 @@
+// COMPONENTS
+import ServiceCard from '../../components/ServiceCard';
+// STYLES
 import './style.scss';
-// ASSETS
-import poundSymbol from '../../assets/images/svg/pound-symbol.svg';
-import cancelSymbol from '../../assets/images/svg/cancel-symbol.svg';
 
 function WhatWeOffer() {
+  // STATE & VARAIBLES
+  const allServices = [
+    {
+      id: 1,
+      img: '/assets/images/svg/pound-symbol.svg',
+      altText: 'Pound symbol',
+      title: 'Luxury Facilitates',
+      description: 'The advantage of hiring a workspace with us is that gives you comfortable services',
+      learnMore: 'This is some dummy text for our service for now'
+    },
+    {
+      id: 2,
+      img: '/assets/images/svg/pound-symbol.svg',
+      altText: 'Pound symbol',
+      title: 'Luxury Facilitates',
+      description: 'The advantage of hiring a workspace with us is that gives you comfortable services',
+      learnMore: 'This is some dummy text for our service for now'
+    },
+    {
+      id: 3,
+      img: '/assets/images/svg/pound-symbol.svg',
+      altText: 'Pound symbol',
+      title: 'Luxury Facilitates',
+      description: 'The advantage of hiring a workspace with us is that gives you comfortable services',
+      learnMore: 'This is some dummy text for our service for now'
+    }
+  ];
+
   return (
     <div className="services-section">
       <h2>What we provide</h2>
@@ -12,57 +40,16 @@ function WhatWeOffer() {
         help, and catered to you solutions.
       </p>
       <section className="services">
-        <div className="wrapper">
-          <div className="service-item">
-            <img src={poundSymbol} alt="" />
-            <h2>Luxury Facilities</h2>
-            <p>
-              The advantage of hiring a workspace with us is that gives you
-              comfortable services
-            </p>
-            <button type="button" className="learn-more">LEARN MORE</button>
-          </div>
-          <div className="service-item-details">
-            <p>
-              This is some dummy text for our service for now
-            </p>
-            <img src={cancelSymbol} alt="" />
-          </div>
-        </div>
-        <div className="wrapper">
-          <div className="service-item">
-            <img src={poundSymbol} alt="" />
-            <h2>Luxury Facilities</h2>
-            <p>
-              The advantage of hiring a workspace with us is that gives you
-              comfortable services
-            </p>
-            <button type="button" className="learn-more">LEARN MORE</button>
-          </div>
-          <div className="service-item-details">
-            <p>
-              This is some dummy text for our service for now
-            </p>
-            <img src={cancelSymbol} alt="" />
-          </div>
-        </div>
-        <div className="wrapper">
-          <div className="service-item">
-            <img src={poundSymbol} alt="" />
-            <h2>Luxury Facilities</h2>
-            <p>
-              The advantage of hiring a workspace with us is that gives you
-              comfortable services
-            </p>
-            <button type="button" className="learn-more">LEARN MORE</button>
-          </div>
-          <div className="service-item-details">
-            <p>
-              This is some dummy text for our service for now
-            </p>
-            <img src={cancelSymbol} alt="" />
-          </div>
-        </div>
+        {allServices && allServices.map((service) => (
+          <ServiceCard
+            key={service.id}
+            img={service.img}
+            altText={service.altText}
+            title={service.title}
+            description={service.description}
+            learnMore={service.learnMore}
+          />
+        ))}
       </section>
     </div>
   );
