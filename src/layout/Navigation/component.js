@@ -19,7 +19,7 @@ function Navigation() {
       </h4>
       <ul className={isHidden ? 'nav-items active' : 'nav-items'}>
         <li><Link to="/our-work">Work</Link></li>
-        <li><Link to="/contact">Get in Touch</Link></li>
+        <button className="btn secondary" type="button"><Link to="/contact">Contact Us</Link></button>
       </ul>
       <button className="nav-burger" type="button" onClick={() => setIsHidden(!isHidden)}>
         <img src={burgerIcon} alt="toggle menu icon" />
