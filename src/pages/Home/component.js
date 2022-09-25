@@ -1,6 +1,7 @@
 // COMPONENTS
 import Banner from '../../layout/Banner';
 import ActionButtons from '../../layout/ActionButtons';
+import WhatWeOffer from '../../layout/WhatWeOffer';
 // STYLES
 import './style.scss';
 // ASSETS
@@ -19,6 +20,7 @@ function Home() {
         </h3>
         <ActionButtons primaryLink="/our-work" secondaryLink="/contact" />
       </Banner>
+      <WhatWeOffer />
     </div>
   );
 }
