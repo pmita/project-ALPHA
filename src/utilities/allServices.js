@@ -13,7 +13,7 @@ export const allServices = [
     img: '/assets/images/svg/pound-symbol.svg',
     altText: 'Pound symbol',
     title: 'Affordable Price',
-    description: 'You can get a solution of the highest quality at an affordable price',
+    description: 'You can get the highest quality solution at an affordable price',
     learnMore: 'We do things like we want things to be done in our own homes and we do everything in our power to meet our customer expectations.'
   },
   {
