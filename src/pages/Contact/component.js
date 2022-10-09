@@ -15,7 +15,7 @@ function Contact() {
   } = useForm({ mode: 'onChange' });
 
   // EVENTS
-  const submitQuery = async ({ firstName, lastName, jobInfo }) => {
+  const submitQuery = async ({ firstName, lastName, jobInfo, region, postCode }) => {
     try {
       setIsPending(true);
       setRequestError(null);
@@ -23,6 +23,8 @@ function Contact() {
         firstName,
         lastName,
         jobInfo,
+        region: region || 'Not Specified',
+        postCode,
         createdAt: timeStamp(),
         updatedAt: timeStamp()
       });
