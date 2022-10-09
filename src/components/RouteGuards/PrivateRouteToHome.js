@@ -8,12 +8,12 @@ function PrivateRouteToHome({ user }) {
 }
 
 PrivateRouteToHome.propTypes = {
-  user: null
+  // eslint-disable-next-line react/forbid-prop-types
+  user: PropTypes.object
 };
 
-PrivateRouteToHome.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  user: PropTypes.object.isRequired
+PrivateRouteToHome.defaultProps = {
+  user: null
 };
 
 export default PrivateRouteToHome;
