@@ -15,7 +15,9 @@ function Contact() {
   } = useForm({ mode: 'onChange' });
 
   // EVENTS
-  const submitQuery = async ({ firstName, lastName, jobInfo, region, postCode }) => {
+  const submitQuery = async ({
+    firstName, lastName, jobInfo, region, postCode
+  }) => {
     try {
       setIsPending(true);
       setRequestError(null);
@@ -28,6 +30,7 @@ function Contact() {
         createdAt: timeStamp(),
         updatedAt: timeStamp()
       });
+      setIsPending(false);
       reset({ firstName: '', lastName: '', jobInfo: '' });
     } catch (err) {
       setIsPending(false);
@@ -37,7 +40,7 @@ function Contact() {
   return (
     <main className="contact-page">
       <h2>Get a Quote</h2>
-      <form className="query-form" onSubmit={handleSubmit(submitQuery)}>
+      <form className="contact-form" onSubmit={handleSubmit(submitQuery)}>
         <section className="personal-details">
           <label>
             <span>First Name</span>
@@ -64,8 +67,10 @@ function Contact() {
             />
           </label>
         </section>
-        {errors.lastName && <p className="form-error">{errors.lastName.message}</p>}
-        {errors.firstName && <p className="form-error">{errors.firstName.message}</p>}
+        <div className="error-section">
+          {errors.lastName && <p className="form-error">{errors.lastName.message}</p>}
+          {errors.firstName && <p className="form-error">{errors.firstName.message}</p>}
+        </div>
 
         {/* Address Section */}
         <section className="address-details">
@@ -91,8 +96,10 @@ function Contact() {
             />
           </label>
         </section>
-        {errors.region && <p className="form-error">{errors.region.message}</p>}
-        {errors.postCode && <p className="form-error">{errors.postCode.message}</p>}
+        <div className="error-section">
+          {errors.region && <p className="form-error">{errors.region.message}</p>}
+          {errors.postCode && <p className="form-error">{errors.postCode.message}</p>}
+        </div>
 
         {/* Job Details */}
         <section className="job-details">
@@ -108,15 +115,14 @@ function Contact() {
               })}
               placeholder="What do you need done?"
             />
-            {errors.jobInfo && <p className="form-error">{errors.jobInfo.message}</p>}
           </label>
+          <div className="error-section">
+            {errors.jobInfo && <p className="form-error">{errors.jobInfo.message}</p>}
+          </div>
 
         </section>
-        <button type="submit" className="btn highlight">
-          Submit
-          {' '}
-          {isPending}
-        </button>
+        {!isPending && <button type="submit" className="btn secondary">Submit</button>}
+        {isPending && <button type="submit" className="btn secondary" disabled>Submitting...</button>}
       </form>
       {requestError && <p className="error">{requestError}</p>}
     </main>
