@@ -1,0 +1,39 @@
+@import '../../styles/functions/mixins';
+@import '../../styles//base/variables';
+
+.contact-page{
+  width: 100%;
+  min-height: 90vh;
+  @include flex(column, center, center);
+  background: $brown;
+  h2{
+    margin-bottom: 2.5rem;
+     color: $white;
+     font-family: 'Roboto', sans-serif; 
+    }
+}
+
+.contact-form{
+  width: 500px;
+  height: 100%;
+  background: $white;
+  padding: 2rem 1rem;
+  @include flex(column, flex-start, center);
+  button{
+    margin: 2.5rem auto;
+  }
+}
+
+.personal-details,
+.address-details{
+  @include flex(row, space-between, flex-start);
+  gap: 1rem;
+}
+
+.job-details{
+  width: 100%;
+  height: 100%;
+  label{
+    @include flex(column, flex-start, stretch);
+  }
+}

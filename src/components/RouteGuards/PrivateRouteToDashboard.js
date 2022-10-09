@@ -8,12 +8,12 @@ function PrivateRouteToDashboard({ user }) {
 }
 
 PrivateRouteToDashboard.propTypes = {
-  user: null
+  // eslint-disable-next-line react/forbid-prop-types
+  user: PropTypes.object
 };
 
-PrivateRouteToDashboard.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  user: PropTypes.object.isRequired
+PrivateRouteToDashboard.defaultProps = {
+  user: null
 };
 
 export default PrivateRouteToDashboard;

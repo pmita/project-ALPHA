@@ -1,4 +1,5 @@
 @import '../base/variables';
+@import '../functions/mixins';
 
 /* Font Properties */
 // main font
@@ -110,20 +111,42 @@
 
   /* Input PRoperties */
   label {
-    display: block;
-  }
-  input {
-    padding: 1rem;
+    flex: 1;
+    @include flex(column, flex-start, flex-start);
+    font-family: 'Roboto-Bold', sans-serif;
+    font-size: $h5;
     color: $black;
-    background: $white;
-    box-sizing: border-box;
-    border: none;
-    font-size: 1.8rem;
-    &:focus{
-      border: 1px solid $black;
+    margin-bottom: 0.5rem;
+    span{
+      padding-bottom: 0.5rem;
+      color: $black-highlight;
+    }
+    input,
+    textarea{
+      padding: 0.5rem;
+      font-size: 1.8rem;
+      background: $white;
+      color: $black-highlight;
+      border: 2px solid $black-highlight;
       outline: none;
+      &:focus{
+        border-color: $brown;
+      }
+      &::placeholder{
+        color: $black-highlight;
+      }
     }
   }
+
+  .error-section{
+    align-self: flex-start;
+    margin: 0.25rem 0;
+    p{
+      padding: 0.25rem 0;
+    }
+    color: $red;
+  }
+
   select{
     background-color: white;
     color: black;
